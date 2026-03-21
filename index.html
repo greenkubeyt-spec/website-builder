@@ -146,10 +146,44 @@
       }
     }
 
+    .headline-accent {
+      position: relative;
+      display: inline-block;
+      color: #86efac;
+    }
+
+    .headline-accent::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0.08em;
+      width: 100%;
+      height: 0.12em;
+      background: #86efac;
+      border-radius: 999px;
+      transform: scaleX(0);
+      transform-origin: left;
+      animation: underlineSweep 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.95s forwards;
+    }
+
+    @keyframes underlineSweep {
+      from {
+        transform: scaleX(0);
+      }
+      to {
+        transform: scaleX(1);
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .headline-pop {
         opacity: 1;
         transform: none;
+        animation: none;
+      }
+
+      .headline-accent::after {
+        transform: scaleX(1);
         animation: none;
       }
     }
@@ -175,12 +209,36 @@
     }
 
     .point {
-      padding: 14px;
+      position: relative;
+      padding: 18px 14px 14px;
       border-radius: 18px;
       background: rgba(255,255,255,0.04);
       border: 1px solid var(--line);
       color: var(--muted);
       font-size: 0.95rem;
+      overflow: hidden;
+    }
+
+    .point::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: #86efac;
+    }
+
+    .hero-points .point:nth-child(1)::before {
+      background: #86efac;
+    }
+
+    .hero-points .point:nth-child(2)::before {
+      background: #7dd3fc;
+    }
+
+    .hero-points .point:nth-child(3)::before {
+      background: #f9a8d4;
     }
 
     .point strong {
@@ -418,7 +476,7 @@
     <div class="container hero-grid">
       <div>
         <div class="eyebrow">✦ Websites made simple for small businesses</div>
-        <h1 class="headline-pop">Clean websites that help your business look professional online.</h1>
+        <h1 class="headline-pop">Clean websites that help your business look <span class="headline-accent">professional</span> online.</h1>
         <p class="lead">Modern, easy-to-use websites for small businesses, freelancers, and personal brands. Clean layouts, clear messaging, and a polished online presence that helps every brand look professional.</p>
         <div class="hero-actions">
           <a href="#contact" class="btn btn-primary">Start Your Website</a>
