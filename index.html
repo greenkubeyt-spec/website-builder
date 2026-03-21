@@ -642,6 +642,62 @@
       gap: 18px;
     }
 
+    .process-layout {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 22px;
+      align-items: center;
+    }
+
+    .process-preview {
+      padding: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .process-window {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #111827;
+    }
+
+    .process-window-top {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      padding: 12px 14px;
+      background: rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .process-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.28);
+    }
+
+    .process-window-body {
+      position: relative;
+      padding: 18px;
+      background: linear-gradient(180deg, #fff7ed 0%, #fdf2f8 100%);
+    }
+
+    .process-page-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .process-page-logo {
+      width: 94px;
+      height: 12px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #fb7185, #f59e0b);
+    }
+
     .pricing {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -863,24 +919,77 @@
     <div class="container">
       <div class="section-head">
         <h2>Simple process</h2>
-        <p>Keep your service clear so people know exactly what happens next.</p>
+        <p>A clear step-by-step flow designed to make each website project smooth, focused, and easy to follow.</p>
       </div>
 
-      <div class="grid-3">
-        <article class="card process-step">
-          <h3>1. Tell me what you need</h3>
-          <p>Share your business, style, and what pages you want on your website.</p>
-        </article>
+      <div class="process-layout">
+        <div class="card process-preview">
+          <div class="process-window">
+            <div class="process-window-top">
+              <span class="process-dot"></span>
+              <span class="process-dot"></span>
+              <span class="process-dot"></span>
+            </div>
+            <div class="process-window-body">
+              <div class="process-page-top">
+                <div class="process-page-logo"></div>
+                <div class="process-page-links">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
 
-        <article class="card process-step">
-          <h3>2. I build the first version</h3>
-          <p>I create a clean design with your content, services, and contact details.</p>
-        </article>
+              <div class="process-page-hero">
+                <div class="process-page-chip"></div>
+                <div class="process-page-title"></div>
+                <div class="process-page-title short"></div>
+                <div class="process-page-copy"></div>
+                <div class="process-page-copy short"></div>
+                <div class="process-page-buttons">
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
 
-        <article class="card process-step">
-          <h3>3. Review and launch</h3>
-          <p>You request edits, approve the final version, and your site goes live.</p>
-        </article>
+              <div class="process-page-grid">
+                <div class="process-page-card warm"></div>
+                <div class="process-page-card cool"></div>
+                <div class="process-page-card rose"></div>
+              </div>
+
+              <span class="process-pin pin-1"></span>
+              <span class="process-pin pin-2"></span>
+              <span class="process-pin pin-3"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="process-steps">
+          <article class="card process-step-item process-step-1">
+            <div class="process-marker"></div>
+            <div class="process-copy">
+              <h3>Discovery</h3>
+              <p>Share the business, goals, and style direction so the website starts with the right structure and message.</p>
+            </div>
+          </article>
+
+          <article class="card process-step-item process-step-2">
+            <div class="process-marker"></div>
+            <div class="process-copy">
+              <h3>Design & build</h3>
+              <p>Layouts, sections, and content are shaped into a clean first version that is ready for review.</p>
+            </div>
+          </article>
+
+          <article class="card process-step-item process-step-3">
+            <div class="process-marker"></div>
+            <div class="process-copy">
+              <h3>Refine & launch</h3>
+              <p>Final edits are made, the details are polished, and the website is prepared to go live with confidence.</p>
+            </div>
+          </article>
+        </div>
       </div>
     </div>
   </section>
