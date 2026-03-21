@@ -147,43 +147,13 @@
     }
 
     .headline-accent {
-      position: relative;
-      display: inline-block;
       color: #86efac;
-    }
-
-    .headline-accent::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0.08em;
-      width: 100%;
-      height: 0.12em;
-      background: #86efac;
-      border-radius: 999px;
-      transform: scaleX(0);
-      transform-origin: left;
-      animation: underlineSweep 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.95s forwards;
-    }
-
-    @keyframes underlineSweep {
-      from {
-        transform: scaleX(0);
-      }
-      to {
-        transform: scaleX(1);
-      }
     }
 
     @media (prefers-reduced-motion: reduce) {
       .headline-pop {
         opacity: 1;
         transform: none;
-        animation: none;
-      }
-
-      .headline-accent::after {
-        transform: scaleX(1);
         animation: none;
       }
     }
@@ -284,26 +254,158 @@
     .window-body {
       padding: 18px;
       display: grid;
-      gap: 14px;
+      gap: 12px;
+      background: linear-gradient(180deg, #0b1220 0%, #0f172a 100%);
     }
 
-    .mock-hero,
-    .mock-row,
-    .mock-box {
-      border-radius: 14px;
-      background: linear-gradient(135deg, rgba(56,189,248,0.16), rgba(34,197,94,0.10));
-      border: 1px solid rgba(255,255,255,0.07);
+    .mini-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
-    .mock-hero { height: 170px; }
-    .mock-row {
+    .mini-brand {
+      font-size: 0.9rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #f8fafc;
+    }
+
+    .mini-brand span {
+      color: #86efac;
+    }
+
+    .mini-links {
+      display: flex;
+      gap: 8px;
+    }
+
+    .mini-link {
+      width: 34px;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+    }
+
+    .mini-hero {
+      padding: 16px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(56,189,248,0.16), rgba(134,239,172,0.10));
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .mini-kicker {
+      width: 88px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(134,239,172,0.9);
+      margin-bottom: 12px;
+    }
+
+    .mini-title {
+      width: 78%;
+      height: 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.92);
+      margin-bottom: 10px;
+    }
+
+    .mini-title.short {
+      width: 56%;
+    }
+
+    .mini-copy {
+      width: 92%;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.2);
+      margin-bottom: 8px;
+    }
+
+    .mini-copy.short {
+      width: 72%;
+      margin-bottom: 14px;
+    }
+
+    .mini-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .mini-btn {
+      height: 28px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .mini-btn.primary {
+      width: 92px;
+      background: #86efac;
+      border-color: transparent;
+    }
+
+    .mini-btn.secondary {
+      width: 78px;
+    }
+
+    .mini-features {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      background: transparent;
-      border: none;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
     }
-    .mock-box { height: 96px; }
+
+    .mini-feature {
+      position: relative;
+      padding: 12px 10px 10px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      min-height: 74px;
+      overflow: hidden;
+    }
+
+    .mini-feature::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: #86efac;
+    }
+
+    .mini-features .mini-feature:nth-child(2)::before {
+      background: #7dd3fc;
+    }
+
+    .mini-features .mini-feature:nth-child(3)::before {
+      background: #f9a8d4;
+    }
+
+    .mini-feature-title {
+      width: 80%;
+      height: 9px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.86);
+      margin-bottom: 8px;
+    }
+
+    .mini-feature-copy {
+      width: 100%;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.18);
+      margin-bottom: 6px;
+    }
+
+    .mini-feature-copy.short {
+      width: 70%;
+      margin-bottom: 0;
+    }
 
     section {
       padding: 28px 0 72px;
@@ -506,14 +608,42 @@
             <span class="dot"></span>
           </div>
           <div class="window-body">
-            <div class="mock-hero"></div>
-            <div class="mock-row">
-              <div class="mock-box"></div>
-              <div class="mock-box"></div>
+            <div class="mini-nav">
+              <div class="mini-brand"><span>B</span>uildora.</div>
+              <div class="mini-links">
+                <div class="mini-link"></div>
+                <div class="mini-link"></div>
+                <div class="mini-link"></div>
+              </div>
             </div>
-            <div class="mock-row">
-              <div class="mock-box"></div>
-              <div class="mock-box"></div>
+            <div class="mini-hero">
+              <div class="mini-kicker"></div>
+              <div class="mini-title"></div>
+              <div class="mini-title short"></div>
+              <div class="mini-copy"></div>
+              <div class="mini-copy"></div>
+              <div class="mini-copy short"></div>
+              <div class="mini-actions">
+                <div class="mini-btn primary"></div>
+                <div class="mini-btn secondary"></div>
+              </div>
+            </div>
+            <div class="mini-features">
+              <div class="mini-feature">
+                <div class="mini-feature-title"></div>
+                <div class="mini-feature-copy"></div>
+                <div class="mini-feature-copy short"></div>
+              </div>
+              <div class="mini-feature">
+                <div class="mini-feature-title"></div>
+                <div class="mini-feature-copy"></div>
+                <div class="mini-feature-copy short"></div>
+              </div>
+              <div class="mini-feature">
+                <div class="mini-feature-title"></div>
+                <div class="mini-feature-copy"></div>
+                <div class="mini-feature-copy short"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -525,7 +655,7 @@
     <div class="container">
       <div class="section-head">
         <h2>What I can help with</h2>
-        <p>Choose a simple service offer and keep it easy for clients to understand.</p>
+        <p>Here's what we do:</p>
       </div>
 
       <div class="grid-3">
