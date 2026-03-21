@@ -644,8 +644,8 @@
 
     .process-layout {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 22px;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 28px;
       align-items: center;
     }
 
@@ -655,11 +655,50 @@
       border: 1px solid rgba(255,255,255,0.08);
     }
 
-    .process-window {
-      border-radius: 20px;
+    .process-preview-stack {
+      min-height: 560px;
+      display: flex;
+      align-items: center;
+    }
+
+    .process-stack {
+      position: relative;
+      width: 100%;
+      height: 520px;
+    }
+
+    .process-screen {
+      position: absolute;
+      width: 78%;
+      border-radius: 22px;
       overflow: hidden;
       border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 22px 44px rgba(0, 0, 0, 0.24);
+      backdrop-filter: blur(10px);
+    }
+
+    .process-screen-1 {
+      top: 22px;
+      left: 0;
+      z-index: 1;
+      background: #1f2937;
+      transform: rotate(-4deg);
+    }
+
+    .process-screen-2 {
+      top: 112px;
+      left: 12%;
+      z-index: 2;
       background: #111827;
+      transform: rotate(1.6deg);
+    }
+
+    .process-screen-3 {
+      top: 210px;
+      right: 0;
+      z-index: 3;
+      background: #0f172a;
+      transform: rotate(-1.8deg);
     }
 
     .process-window-top {
@@ -667,8 +706,8 @@
       gap: 8px;
       align-items: center;
       padding: 12px 14px;
-      background: rgba(255,255,255,0.04);
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+      background: rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
     .process-dot {
@@ -678,206 +717,307 @@
       background: rgba(255,255,255,0.28);
     }
 
-    .process-window-body {
-      position: relative;
+    .process-screen-body {
       padding: 18px;
-      background: linear-gradient(180deg, #fff7ed 0%, #fdf2f8 100%);
     }
 
-    .process-page-top {
-      display: flex;
+    .text-stage {
+      background: linear-gradient(180deg, #fff7ed 0%, #ffedd5 100%);
+    }
+
+    .draft-stage {
+      background: linear-gradient(180deg, #eff6ff 0%, #dbeafe 100%);
+    }
+
+    .final-stage {
+      background: linear-gradient(180deg, #faf5ff 0%, #ede9fe 100%);
+    }
+
+    .stage-badge {
+      display: inline-flex;
       align-items: center;
-      justify-content: space-between;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.08);
+      color: #7c2d12;
+      font-size: 0.78rem;
+      font-weight: 700;
       margin-bottom: 14px;
     }
 
-    .process-page-logo {
-      width: 94px;
-      height: 12px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #fb7185, #f59e0b);
+    .stage-badge.alt {
+      color: #1d4ed8;
     }
 
-    .process-page-links {
-      display: flex;
-      gap: 8px;
+    .stage-badge.final {
+      color: #6d28d9;
     }
 
-    .process-page-links span {
-      width: 28px;
-      height: 8px;
-      border-radius: 999px;
-      background: rgba(15,23,42,0.14);
-    }
-
-    .process-page-hero {
-      padding: 18px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, rgba(251,191,36,0.18), rgba(251,113,133,0.16), rgba(192,132,252,0.12));
-      border: 1px solid rgba(15,23,42,0.06);
-      margin-bottom: 14px;
-    }
-
-    .process-page-chip {
-      width: 84px;
-      height: 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.72);
-      margin-bottom: 12px;
-    }
-
-    .process-page-title {
-      width: 76%;
+    .stage-title,
+    .draft-headline,
+    .final-title {
+      width: 78%;
       height: 16px;
       border-radius: 999px;
-      background: rgba(15,23,42,0.86);
+      background: rgba(15,23,42,0.88);
       margin-bottom: 10px;
     }
 
-    .process-page-title.short {
-      width: 52%;
+    .stage-title.short,
+    .draft-headline.short,
+    .final-title.short {
+      width: 54%;
     }
 
-    .process-page-copy {
-      width: 88%;
+    .stage-copy,
+    .draft-copy,
+    .final-copy {
+      width: 92%;
       height: 8px;
       border-radius: 999px;
       background: rgba(15,23,42,0.18);
       margin-bottom: 8px;
     }
 
-    .process-page-copy.short {
-      width: 66%;
+    .stage-copy.short,
+    .draft-copy.short,
+    .final-copy.short {
+      width: 68%;
       margin-bottom: 14px;
     }
 
-    .process-page-buttons {
+    .stage-note-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .stage-note {
+      height: 74px;
+      border-radius: 16px;
+      border: 1px solid rgba(15,23,42,0.08);
+      background: rgba(255,255,255,0.62);
+    }
+
+    .stage-note.warm {
+      background: linear-gradient(180deg, rgba(251,191,36,0.30), rgba(255,255,255,0.72));
+    }
+
+    .stage-note.cool {
+      background: linear-gradient(180deg, rgba(56,189,248,0.24), rgba(255,255,255,0.72));
+    }
+
+    .draft-topbar,
+    .final-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .draft-logo {
+      width: 94px;
+      height: 12px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #38bdf8, #60a5fa);
+    }
+
+    .draft-links,
+    .final-links {
+      display: flex;
+      gap: 8px;
+    }
+
+    .draft-links span,
+    .final-links span {
+      width: 28px;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.14);
+    }
+
+    .draft-hero,
+    .final-hero {
+      padding: 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(15,23,42,0.06);
+      margin-bottom: 14px;
+    }
+
+    .draft-hero {
+      background: linear-gradient(135deg, rgba(125,211,252,0.28), rgba(59,130,246,0.16));
+    }
+
+    .final-hero {
+      background: linear-gradient(135deg, rgba(196,181,253,0.26), rgba(251,113,133,0.14));
+    }
+
+    .draft-buttons {
       display: flex;
       gap: 10px;
     }
 
-    .process-page-buttons span {
-      width: 92px;
-      height: 30px;
+    .draft-buttons span {
+      width: 88px;
+      height: 28px;
       border-radius: 999px;
       background: rgba(255,255,255,0.72);
       border: 1px solid rgba(15,23,42,0.06);
     }
 
-    .process-page-buttons span:last-child {
-      width: 78px;
-      background: rgba(255,255,255,0.42);
+    .draft-buttons span:last-child {
+      width: 74px;
+      background: rgba(255,255,255,0.44);
     }
 
-    .process-page-grid {
+    .draft-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
+      gap: 10px;
     }
 
-    .process-page-card {
-      height: 84px;
-      border-radius: 16px;
+    .draft-card {
+      height: 76px;
+      border-radius: 14px;
       border: 1px solid rgba(15,23,42,0.06);
-      background: rgba(255,255,255,0.65);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.45);
+      background: rgba(255,255,255,0.64);
     }
 
-    .process-page-card.warm {
-      background: linear-gradient(180deg, rgba(251,191,36,0.22), rgba(255,255,255,0.72));
+    .draft-card.amber {
+      background: linear-gradient(180deg, rgba(251,191,36,0.24), rgba(255,255,255,0.72));
     }
 
-    .process-page-card.cool {
-      background: linear-gradient(180deg, rgba(125,211,252,0.22), rgba(255,255,255,0.72));
+    .draft-card.blue {
+      background: linear-gradient(180deg, rgba(96,165,250,0.28), rgba(255,255,255,0.72));
     }
 
-    .process-page-card.rose {
-      background: linear-gradient(180deg, rgba(251,113,133,0.18), rgba(255,255,255,0.72));
+    .draft-card.pink {
+      background: linear-gradient(180deg, rgba(251,113,133,0.22), rgba(255,255,255,0.72));
     }
 
-    .process-pin {
-      position: absolute;
-      width: 14px;
-      height: 14px;
+    .final-logo {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: #111827;
+      letter-spacing: -0.02em;
+    }
+
+    .final-logo span {
+      color: #86efac;
+    }
+
+    .final-cta {
+      width: 104px;
+      height: 30px;
       border-radius: 999px;
-      border: 2px solid #ffffff;
-      box-shadow: 0 10px 24px rgba(15,23,42,0.18);
+      background: linear-gradient(90deg, #c4b5fd, #a78bfa);
     }
 
-    .pin-1 {
-      top: 92px;
-      left: 48px;
-      background: #f59e0b;
+    .final-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
     }
 
-    .pin-2 {
-      top: 152px;
-      right: 68px;
-      background: #38bdf8;
+    .final-stat {
+      height: 76px;
+      border-radius: 14px;
+      border: 1px solid rgba(15,23,42,0.06);
+      background: rgba(255,255,255,0.66);
     }
 
-    .pin-3 {
-      bottom: 30px;
-      left: 168px;
-      background: #fb7185;
+    .final-stat.green {
+      background: linear-gradient(180deg, rgba(134,239,172,0.24), rgba(255,255,255,0.74));
+    }
+
+    .final-stat.purple {
+      background: linear-gradient(180deg, rgba(196,181,253,0.28), rgba(255,255,255,0.74));
     }
 
     .process-steps {
       position: relative;
       display: grid;
-      gap: 16px;
-      padding-left: 18px;
+      gap: 18px;
     }
 
-    .process-steps::before {
-      content: "";
-      position: absolute;
-      top: 20px;
-      bottom: 20px;
-      left: 10px;
-      width: 2px;
-      background: linear-gradient(180deg, rgba(245,158,11,0.42), rgba(56,189,248,0.42), rgba(251,113,133,0.42));
+    .process-steps-left {
+      padding-right: 6px;
     }
 
     .process-step-item {
       position: relative;
       display: grid;
       grid-template-columns: auto 1fr;
-      gap: 14px;
+      gap: 16px;
       align-items: start;
-      padding: 20px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      padding: 24px 22px;
       border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 22px;
+      overflow: hidden;
+      min-height: 138px;
+    }
+
+    .process-step-1 {
+      background: linear-gradient(135deg, rgba(251,191,36,0.16), rgba(255,255,255,0.04));
+      border-color: rgba(251,191,36,0.18);
+    }
+
+    .process-step-2 {
+      background: linear-gradient(135deg, rgba(56,189,248,0.16), rgba(255,255,255,0.04));
+      border-color: rgba(56,189,248,0.18);
+    }
+
+    .process-step-3 {
+      background: linear-gradient(135deg, rgba(251,113,133,0.16), rgba(255,255,255,0.04));
+      border-color: rgba(251,113,133,0.18);
+    }
+
+    .process-step-item::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 4px;
+      background: #fbbf24;
+    }
+
+    .process-step-2::before {
+      background: #38bdf8;
+    }
+
+    .process-step-3::before {
+      background: #fb7185;
     }
 
     .process-marker {
-      width: 20px;
-      height: 20px;
+      width: 22px;
+      height: 22px;
       border-radius: 999px;
       border: 4px solid rgba(15,23,42,0.10);
-      margin-top: 4px;
-      background: #f59e0b;
-      box-shadow: 0 0 0 6px rgba(245,158,11,0.14);
+      margin-top: 6px;
+      background: #fbbf24;
+      box-shadow: 0 0 0 7px rgba(251,191,36,0.14);
+      flex-shrink: 0;
     }
 
     .process-step-2 .process-marker {
       background: #38bdf8;
-      box-shadow: 0 0 0 6px rgba(56,189,248,0.14);
+      box-shadow: 0 0 0 7px rgba(56,189,248,0.14);
     }
 
     .process-step-3 .process-marker {
       background: #fb7185;
-      box-shadow: 0 0 0 6px rgba(251,113,133,0.14);
+      box-shadow: 0 0 0 7px rgba(251,113,133,0.14);
     }
 
     .process-copy h3 {
-      margin: 0 0 8px;
-      font-size: 1.08rem;
+      margin: 0 0 10px;
+      font-size: 1.12rem;
     }
 
     .process-copy p {
       margin: 0;
       color: var(--muted);
+      line-height: 1.65;
     }
 
     .pricing {
@@ -952,31 +1092,31 @@
         grid-template-columns: 1fr;
       }
 
-      .process-steps {
-        padding-left: 0;
+      .process-preview-stack {
+        min-height: 620px;
       }
 
-      .process-steps::before {
-        display: none;
+      .process-stack {
+        height: 580px;
       }
 
-      .process-page-grid {
-        grid-template-columns: 1fr;
+      .process-screen {
+        width: 86%;
       }
 
-      .pin-1 {
-        top: 88px;
-        left: 36px;
+      .process-screen-1 {
+        top: 8px;
+        left: 0;
       }
 
-      .pin-2 {
-        top: 150px;
-        right: 40px;
+      .process-screen-2 {
+        top: 138px;
+        left: 8%;
       }
 
-      .pin-3 {
-        bottom: 28px;
-        left: 120px;
+      .process-screen-3 {
+        top: 278px;
+        right: 0;
       }
         grid-template-columns: 1fr;
       }
@@ -1131,80 +1271,32 @@
     <div class="container">
       <div class="section-head">
         <h2>Simple process</h2>
-        <p>A clear step-by-step flow designed to make each website project smooth, focused, and easy to follow.</p>
+        <p>A clear step-by-step flow designed to keep each project organised, smooth, and easy to understand from start to finish.</p>
       </div>
 
       <div class="process-layout">
-        <div class="card process-preview">
-          <div class="process-window">
-            <div class="process-window-top">
-              <span class="process-dot"></span>
-              <span class="process-dot"></span>
-              <span class="process-dot"></span>
-            </div>
-            <div class="process-window-body">
-              <div class="process-page-top">
-                <div class="process-page-logo"></div>
-                <div class="process-page-links">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-              </div>
-
-              <div class="process-page-hero">
-                <div class="process-page-chip"></div>
-                <div class="process-page-title"></div>
-                <div class="process-page-title short"></div>
-                <div class="process-page-copy"></div>
-                <div class="process-page-copy short"></div>
-                <div class="process-page-buttons">
-                  <span></span>
-                  <span></span>
-                </div>
-              </div>
-
-              <div class="process-page-grid">
-                <div class="process-page-card warm"></div>
-                <div class="process-page-card cool"></div>
-                <div class="process-page-card rose"></div>
-              </div>
-
-              <span class="process-pin pin-1"></span>
-              <span class="process-pin pin-2"></span>
-              <span class="process-pin pin-3"></span>
-            </div>
-          </div>
-        </div>
-
-        <div class="process-steps">
+        <div class="process-steps process-steps-left">
           <article class="card process-step-item process-step-1">
             <div class="process-marker"></div>
             <div class="process-copy">
               <h3>Discovery</h3>
-              <p>Share the business, goals, and style direction so the website starts with the right structure and message.</p>
+              <p>Business goals, style direction, and key details are clarified first, so the project begins with direction and purpose.</p>
             </div>
           </article>
 
           <article class="card process-step-item process-step-2">
             <div class="process-marker"></div>
             <div class="process-copy">
-              <h3>Design & build</h3>
-              <p>Layouts, sections, and content are shaped into a clean first version that is ready for review.</p>
+              <h3>Build</h3>
+              <p>A cleaner website starts taking shape through layouts, visual structure, and content placement.</p>
             </div>
           </article>
 
           <article class="card process-step-item process-step-3">
             <div class="process-marker"></div>
             <div class="process-copy">
-              <h3>Refine & launch</h3>
-              <p>Final edits are made, the details are polished, and the website is prepared to go live with confidence.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
+              <h3>Launch</h3>
+              <p>Once refined and polished, the final website is ready to go live with a more professional fin
 
   <section id="pricing">
     <div class="container">
