@@ -181,9 +181,15 @@
     }
 
     .hero-points {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      display: flex;
       gap: 12px;
+      flex-wrap: nowrap;
+      align-items: stretch;
+    }
+
+    .hero-points .point {
+      flex: 1 1 0;
+      min-width: 0;
     }
 
     .point {
@@ -1115,7 +1121,14 @@
       }
 
       .hero-points {
-        grid-template-columns: 1fr;
+        display: flex;
+        gap: 10px;
+        flex-wrap: nowrap;
+      }
+
+      .hero-points .point {
+        flex: 1 1 0;
+        min-width: 0;
       }
 
       .highlight { transform: none; }
