@@ -308,7 +308,7 @@
     }
 
     .mini-brand span {
-      color: #86efac;
+      color: #fbbf24;
     }
 
     .mini-links {
@@ -324,21 +324,21 @@
     }
 
     .mini-links .mini-link:nth-child(1) {
-      background: rgba(125,211,252,0.55);
+      background: rgba(251,113,133,0.55);
     }
 
     .mini-links .mini-link:nth-child(2) {
-      background: rgba(134,239,172,0.55);
+      background: rgba(251,191,36,0.55);
     }
 
     .mini-links .mini-link:nth-child(3) {
-      background: rgba(249,168,212,0.45);
+      background: rgba(192,132,252,0.5);
     }
 
     .mini-hero {
       padding: 16px;
       border-radius: 16px;
-      background: linear-gradient(135deg, rgba(125,211,252,0.18), rgba(192,132,252,0.12) 52%, rgba(134,239,172,0.12));
+      background: linear-gradient(135deg, rgba(251,191,36,0.16), rgba(251,113,133,0.12) 52%, rgba(192,132,252,0.12));
       border: 1px solid rgba(255,255,255,0.08);
     }
 
@@ -346,7 +346,7 @@
       width: 88px;
       height: 10px;
       border-radius: 999px;
-      background: linear-gradient(90deg, #86efac, #7dd3fc);
+      background: linear-gradient(90deg, #fbbf24, #fb7185);
       margin-bottom: 12px;
     }
 
@@ -389,14 +389,14 @@
 
     .mini-btn.primary {
       width: 92px;
-      background: #86efac;
+      background: #fbbf24;
       border-color: transparent;
     }
 
     .mini-btn.secondary {
       width: 78px;
-      background: rgba(125,211,252,0.16);
-      border-color: rgba(125,211,252,0.22);
+      background: rgba(192,132,252,0.16);
+      border-color: rgba(192,132,252,0.24);
     }
 
     .mini-features {
@@ -416,18 +416,18 @@
     }
 
     .mini-features .mini-feature:nth-child(1) {
-      background: linear-gradient(180deg, rgba(134,239,172,0.10), rgba(255,255,255,0.03));
-      border-color: rgba(134,239,172,0.12);
+      background: linear-gradient(180deg, rgba(251,191,36,0.10), rgba(255,255,255,0.03));
+      border-color: rgba(251,191,36,0.14);
     }
 
     .mini-features .mini-feature:nth-child(2) {
-      background: linear-gradient(180deg, rgba(125,211,252,0.10), rgba(255,255,255,0.03));
-      border-color: rgba(125,211,252,0.12);
+      background: linear-gradient(180deg, rgba(251,113,133,0.10), rgba(255,255,255,0.03));
+      border-color: rgba(251,113,133,0.14);
     }
 
     .mini-features .mini-feature:nth-child(3) {
-      background: linear-gradient(180deg, rgba(249,168,212,0.10), rgba(255,255,255,0.03));
-      border-color: rgba(249,168,212,0.12);
+      background: linear-gradient(180deg, rgba(192,132,252,0.10), rgba(255,255,255,0.03));
+      border-color: rgba(192,132,252,0.14);
     }
 
     .mini-feature::before {
@@ -437,15 +437,15 @@
       left: 0;
       width: 100%;
       height: 3px;
-      background: #86efac;
+      background: #fbbf24;
     }
 
     .mini-features .mini-feature:nth-child(2)::before {
-      background: #7dd3fc;
+      background: #fb7185;
     }
 
     .mini-features .mini-feature:nth-child(3)::before {
-      background: #f9a8d4;
+      background: #c084fc;
     }
 
     .mini-feature-title {
@@ -502,6 +502,71 @@
       padding: 22px;
     }
 
+    .service {
+      position: relative;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      opacity: 0;
+      transform: translateY(20px) scale(0.98);
+      animation: serviceRise 0.48s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+      overflow: hidden;
+    }
+
+    .service::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 4px;
+      background: #86efac;
+    }
+
+    .service:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.28);
+    }
+
+    .service-1 {
+      background: linear-gradient(180deg, rgba(134,239,172,0.10), rgba(255,255,255,0.03));
+      border-color: rgba(134,239,172,0.16);
+      animation-delay: 0.12s;
+    }
+
+    .service-1::before {
+      background: #86efac;
+    }
+
+    .service-2 {
+      background: linear-gradient(180deg, rgba(125,211,252,0.10), rgba(255,255,255,0.03));
+      border-color: rgba(125,211,252,0.16);
+      animation-delay: 0.22s;
+    }
+
+    .service-2::before {
+      background: #7dd3fc;
+    }
+
+    .service-3 {
+      background: linear-gradient(180deg, rgba(196,181,253,0.10), rgba(255,255,255,0.03));
+      border-color: rgba(196,181,253,0.16);
+      animation-delay: 0.32s;
+    }
+
+    .service-3::before {
+      background: #c4b5fd;
+    }
+
+    @keyframes serviceRise {
+      from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
     .service h3,
     .plan h3,
     .process-step h3,
@@ -526,9 +591,29 @@
       place-items: center;
       border-radius: 14px;
       margin-bottom: 14px;
-      background: rgba(56,189,248,0.12);
-      border: 1px solid rgba(56,189,248,0.25);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
       font-size: 1.25rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .service-tags span {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: var(--text);
+      font-size: 0.82rem;
+      line-height: 1;
     }
 
     .grid-2 {
@@ -716,27 +801,39 @@
   <section id="services">
     <div class="container">
       <div class="section-head">
-        <h2>What I can help with</h2>
-        <p>Here's what we do:</p>
+        <h2>Services</h2>
+        <p>Designed to help small businesses launch online with clarity, confidence, and a more professional presence.</p>
       </div>
 
       <div class="grid-3">
-        <article class="card service">
+        <article class="card service service-1">
           <div class="service-icon">✦</div>
-          <h3>Starter websites</h3>
-          <p>One-page or small brochure-style websites for freelancers, tutors, home businesses, and personal brands.</p>
+          <h3>Starter Websites</h3>
+          <p>Clean one-page websites for new businesses, freelancers, and personal brands that need a polished online start.</p>
+          <div class="service-tags">
+            <span>Clean design</span>
+            <span>Fast setup</span>
+          </div>
         </article>
 
-        <article class="card service">
+        <article class="card service service-2">
           <div class="service-icon">⚡</div>
-          <h3>Website refresh</h3>
-          <p>Improve an outdated site with cleaner sections, better wording, and a more modern design.</p>
+          <h3>Website Refreshes</h3>
+          <p>A modern update for websites that need clearer structure, stronger styling, and a more trustworthy first impression.</p>
+          <div class="service-tags">
+            <span>Modern layout</span>
+            <span>Better clarity</span>
+          </div>
         </article>
 
-        <article class="card service">
+        <article class="card service service-3">
           <div class="service-icon">☏</div>
-          <h3>Launch support</h3>
-          <p>Help with contact forms, pricing sections, service pages, and the final steps to get a site live.</p>
+          <h3>Landing Pages</h3>
+          <p>Focused pages built to showcase a service, offer, or business idea with a clear message and strong call to action.</p>
+          <div class="service-tags">
+            <span>Focused message</span>
+            <span>Strong CTA</span>
+          </div>
         </article>
       </div>
     </div>
