@@ -512,6 +512,10 @@
       margin: 0;
     }
 
+    .process-highlight {
+      color: #86efac;
+    }
+
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1061,7 +1065,7 @@
       appearance: none;
       border: 1px solid rgba(255,255,255,0.10);
       background: rgba(255,255,255,0.05);
-      color: var(--text);
+      color: #0f172a;
       padding: 10px 16px;
       border-radius: 999px;
       font: inherit;
@@ -1070,15 +1074,31 @@
       transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
     }
 
+    .process-tab:nth-child(1) {
+      background: rgba(251,191,36,0.92);
+      border-color: rgba(251,191,36,0.92);
+    }
+
+    .process-tab:nth-child(2) {
+      background: rgba(125,211,252,0.92);
+      border-color: rgba(125,211,252,0.92);
+    }
+
+    .process-tab:nth-child(3) {
+      background: rgba(251,113,133,0.88);
+      border-color: rgba(251,113,133,0.88);
+    }
+
     .process-tab:hover {
       transform: translateY(-1px);
-      border-color: rgba(255,255,255,0.16);
+      filter: brightness(1.02);
     }
 
     .process-tab.is-active {
       background: #ffffff;
       color: #0f172a;
       border-color: #ffffff;
+      filter: none;
     }
 
     .process-panels {
@@ -1375,7 +1395,7 @@
   <section id="process">
     <div class="container">
       <div class="section-head">
-        <h2>How the process works</h2>
+        <h2>How the <span class="process-highlight">process</span> works</h2>
         <p>A simple step-by-step flow that takes each website from idea to launch with clarity, structure, and a polished final result.</p>
       </div>
 
