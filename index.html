@@ -131,14 +131,19 @@
     .headline-pop {
       opacity: 0;
       transform: translateY(24px);
-      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-      transition-delay: 0.15s;
+      animation: headlineRise 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
       will-change: transform, opacity;
     }
 
-    .headline-pop.is-visible {
-      opacity: 1;
-      transform: translateY(0);
+    @keyframes headlineRise {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .headline-accent {
@@ -198,13 +203,32 @@
       overflow: hidden;
       opacity: 0;
       transform: translateY(18px) scale(0.96);
-      transition: opacity 0.42s cubic-bezier(0.22, 1, 0.36, 1), transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+      animation: pointPop 0.42s cubic-bezier(0.22, 1, 0.36, 1) forwards;
       will-change: transform, opacity;
     }
 
-    .point.is-visible {
-      opacity: 1;
-      transform: translateY(
+    .hero-points .point:nth-child(1) {
+      animation-delay: 0.38s;
+    }
+
+    .hero-points .point:nth-child(2) {
+      animation-delay: 0.48s;
+    }
+
+    .hero-points .point:nth-child(3) {
+      animation-delay: 0.58s;
+    }
+
+    @keyframes pointPop {
+      from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.96);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
 
     .point::before {
       content: "";
