@@ -1044,6 +1044,105 @@
       gap: 18px;
     }
 
+    .process-tabs-card {
+      padding: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .process-tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .process-tab {
+      appearance: none;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .process-tab:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,0.16);
+    }
+
+    .process-tab.is-active {
+      background: #ffffff;
+      color: #0f172a;
+      border-color: #ffffff;
+    }
+
+    .process-panels {
+      position: relative;
+    }
+
+    .process-panel {
+      padding: 24px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      animation: processFade 0.24s ease;
+    }
+
+    .process-panel[data-panel="1"] {
+      background: linear-gradient(135deg, rgba(251,191,36,0.14), rgba(255,255,255,0.03));
+      border-color: rgba(251,191,36,0.18);
+    }
+
+    .process-panel[data-panel="2"] {
+      background: linear-gradient(135deg, rgba(125,211,252,0.14), rgba(255,255,255,0.03));
+      border-color: rgba(125,211,252,0.18);
+    }
+
+    .process-panel[data-panel="3"] {
+      background: linear-gradient(135deg, rgba(251,113,133,0.14), rgba(255,255,255,0.03));
+      border-color: rgba(251,113,133,0.18);
+    }
+
+    .process-kicker {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.72);
+      color: #0f172a;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .process-panel h3 {
+      margin: 0 0 10px;
+      font-size: 1.35rem;
+      letter-spacing: -0.02em;
+    }
+
+    .process-panel p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    @keyframes processFade {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     .price {
       font-size: 2rem;
       font-weight: 800;
@@ -1276,25 +1375,36 @@
   <section id="process">
     <div class="container">
       <div class="section-head">
-        <h2>Simple process</h2>
-        <p>Keep your service clear so people know exactly what happens next.</p>
+        <h2>How the process works</h2>
+        <p>A simple step-by-step flow that takes each website from idea to launch with clarity, structure, and a polished final result.</p>
       </div>
 
-      <div class="grid-3">
-        <article class="card process-step">
-          <h3>1. Tell me what you need</h3>
-          <p>Share your business, style, and what pages you want on your website.</p>
-        </article>
+      <div class="card process-tabs-card">
+        <div class="process-tabs" role="tablist" aria-label="Website process steps">
+          <button class="process-tab is-active" type="button" data-step="1" role="tab" aria-selected="true">Step 1</button>
+          <button class="process-tab" type="button" data-step="2" role="tab" aria-selected="false">Step 2</button>
+          <button class="process-tab" type="button" data-step="3" role="tab" aria-selected="false">Step 3</button>
+        </div>
 
-        <article class="card process-step">
-          <h3>2. I build the first version</h3>
-          <p>I create a clean design with your content, services, and contact details.</p>
-        </article>
+        <div class="process-panels">
+          <article class="process-panel is-active" data-panel="1">
+            <span class="process-kicker">Discovery</span>
+            <h3>Share the business, style, and goals for the website.</h3>
+            <p>The first step is understanding what the brand needs, how the website should feel, and what pages or features matter most. This creates a clear starting point before any design work begins.</p>
+          </article>
 
-        <article class="card process-step">
-          <h3>3. Review and launch</h3>
-          <p>You request edits, approve the final version, and your site goes live.</p>
-        </article>
+          <article class="process-panel" data-panel="2" hidden>
+            <span class="process-kicker">Build</span>
+            <h3>The first version is designed with structure and clarity.</h3>
+            <p>Layouts, sections, and content are shaped into a cleaner website experience. This is where the ideas begin to look like a real site with a stronger visual direction.</p>
+          </article>
+
+          <article class="process-panel" data-panel="3" hidden>
+            <span class="process-kicker">Launch</span>
+            <h3>Review, refine, and prepare the final version to go live.</h3>
+            <p>Once feedback is applied and the details are polished, the website is ready for launch. The result is a more professional online presence that feels finished and ready to show.</p>
+          </article>
+        </div>
       </div>
     </div>
   </section>
@@ -1421,6 +1531,27 @@
     } else {
       serviceCards.forEach((card) => card.classList.add('is-visible'));
     }
+
+    const processTabs = document.querySelectorAll('.process-tab');
+    const processPanels = document.querySelectorAll('.process-panel');
+
+    processTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const step = tab.dataset.step;
+
+        processTabs.forEach((button) => {
+          const isActive = button.dataset.step === step;
+          button.classList.toggle('is-active', isActive);
+          button.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+
+        processPanels.forEach((panel) => {
+          const isActive = panel.dataset.panel === step;
+          panel.classList.toggle('is-active', isActive);
+          panel.hidden = !isActive;
+        });
+      });
+    });
   </script>
 </body>
 </html>
