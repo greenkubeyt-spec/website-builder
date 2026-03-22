@@ -108,6 +108,16 @@
       color: var(--text);
     }
 
+    .btn-premium {
+      background: linear-gradient(135deg, #fb7185, #c084fc);
+      color: #ffffff;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-premium:hover {
+      transform: translateY(-1px);
+    }
+
     .hero {
       padding: 82px 0 56px;
     }
@@ -637,31 +647,29 @@
       line-height: 1;
     }
 
-    .process-tabs-card {
-      padding: 22px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
-      border: 1px solid rgba(255,255,255,0.08);
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-      transition-delay: 0.12s;
-      will-change: transform, opacity;
-    }
-
-    .section-head.process-reveal {
+    .process-reveal {
       opacity: 0;
       transform: translateY(28px);
       transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
       will-change: transform, opacity;
     }
 
-    .process-tabs-card.is-visible,
-    .section-head.process-reveal.is-visible {
+    .process-reveal.is-visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    .process-highlight {
+    .process-tabs-card {
+      padding: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .process-brand {
+      color: var(--text);
+    }
+
+    .process-brand span {
       color: #86efac;
     }
 
@@ -686,7 +694,26 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, opacity 0.35s ease;
+    }
+
+    .process-tabs-card.is-visible .process-tab {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .process-tabs-card.is-visible .process-tab:nth-child(1) {
+      transition-delay: 0.12s;
+    }
+
+    .process-tabs-card.is-visible .process-tab:nth-child(2) {
+      transition-delay: 0.20s;
+    }
+
+    .process-tabs-card.is-visible .process-tab:nth-child(3) {
+      transition-delay: 0.28s;
     }
 
     .process-tab:hover {
@@ -763,10 +790,66 @@
       }
     }
 
+    .pricing-heading {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform, opacity;
+    }
+
+    .pricing-heading.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .pricing-highlight {
+      position: relative;
+      display: inline-block;
+      color: #86efac;
+    }
+
+    .pricing-highlight::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.18em;
+      width: 100%;
+      height: 0.12em;
+      border-radius: 999px;
+      background: #86efac;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+      transition-delay: 0.22s;
+    }
+
+    .pricing-heading.is-visible .pricing-highlight::after {
+      transform: scaleX(1);
+    }
+
     .pricing {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
+    }
+
+    .plan {
+      padding: 22px;
+    }
+
+    .basic-plan {
+      background: linear-gradient(180deg, rgba(148,163,184,0.10), rgba(255,255,255,0.03));
+      border-color: rgba(148,163,184,0.16);
+    }
+
+    .standard-plan {
+      background: linear-gradient(180deg, rgba(125,211,252,0.13), rgba(134,239,172,0.07));
+      border-color: rgba(125,211,252,0.22);
+    }
+
+    .premium-plan {
+      background: linear-gradient(180deg, rgba(251,113,133,0.12), rgba(192,132,252,0.08));
+      border-color: rgba(251,113,133,0.22);
     }
 
     .price {
@@ -795,6 +878,12 @@
       border: 1px solid rgba(34,197,94,0.25);
       font-size: 0.8rem;
       margin-bottom: 8px;
+    }
+
+    .badge-premium {
+      background: rgba(251,113,133,0.14);
+      color: #fecdd3;
+      border-color: rgba(251,113,133,0.26);
     }
 
     .grid-2 {
@@ -880,11 +969,17 @@
       .headline-pop,
       .point,
       .service,
-      .process-tabs-card,
-      .section-head.process-reveal {
+      .process-reveal,
+      .process-tab,
+      .pricing-heading {
         opacity: 1;
         transform: none;
         animation: none;
+        transition: none;
+      }
+
+      .pricing-highlight::after {
+        transform: scaleX(1);
         transition: none;
       }
     }
@@ -1029,7 +1124,7 @@
   <section id="process">
     <div class="container">
       <div class="section-head process-reveal">
-        <h2>How the <span class="process-highlight">process</span> works</h2>
+        <h2>The <span class="process-brand"><span>B</span>uildora</span> process</h2>
         <p>A simple step-by-step flow that takes each website from idea to launch with clarity, structure, and a polished final result.</p>
       </div>
 
@@ -1065,50 +1160,51 @@
 
   <section id="pricing">
     <div class="container">
-      <div class="section-head">
-        <h2>Simple pricing</h2>
-        <p>These are placeholder prices. Edit them to match your level, market, and confidence.</p>
+      <div class="section-head pricing-heading">
+        <h2>Our <span class="pricing-highlight">pricing</span></h2>
+        <p>Choose from flexible website packages designed for different goals, timelines, and levels of support.</p>
       </div>
 
       <div class="pricing">
-        <article class="card plan">
+        <article class="card plan basic-plan">
           <h3>Basic</h3>
           <div class="price">$99</div>
-          <p>Good for a single-page starter website.</p>
+          <p>Ideal for a focused one-page website.</p>
           <ul>
             <li>1 page website</li>
-            <li>Mobile-friendly design</li>
-            <li>Contact section</li>
+            <li>Clean starter layout</li>
+            <li>Professional email contact section</li>
             <li>1 round of edits</li>
           </ul>
           <a href="#contact" class="btn btn-secondary">Choose Basic</a>
         </article>
 
-        <article class="card plan highlight">
+        <article class="card plan standard-plan highlight">
           <span class="badge">Most Popular</span>
           <h3>Standard</h3>
-          <div class="price">$199</div>
-          <p>For small businesses that need a stronger online presence.</p>
+          <div class="price">$229</div>
+          <p>Best for businesses that need more space and flexibility.</p>
           <ul>
-            <li>Up to 4 pages</li>
+            <li>Up to 3 pages</li>
             <li>Homepage and service sections</li>
-            <li>Contact form</li>
-            <li>2 rounds of edits</li>
+            <li>Contact forms</li>
+            <li>Up to 3 rounds of edits</li>
           </ul>
           <a href="#contact" class="btn btn-primary">Choose Standard</a>
         </article>
 
-        <article class="card plan">
+        <article class="card plan premium-plan">
+          <span class="badge badge-premium">Most Complete</span>
           <h3>Premium</h3>
-          <div class="price">$349</div>
-          <p>For a fuller website with more polish and content.</p>
+          <div class="price">$369</div>
+          <p>Built for brands that need stronger support and a fuller website setup.</p>
           <ul>
-            <li>Up to 6 pages</li>
+            <li>Up to 5 pages</li>
             <li>Custom sections</li>
-            <li>Basic copy support</li>
-            <li>Priority revisions</li>
+            <li>Priority revisions with up to 3 rounds of edits</li>
+            <li>Basic copy ideas for stronger customer messaging</li>
           </ul>
-          <a href="#contact" class="btn btn-secondary">Choose Premium</a>
+          <a href="#contact" class="btn btn-premium">Choose Premium</a>
         </article>
       </div>
     </div>
@@ -1205,6 +1301,26 @@
       processRevealItems.forEach((item) => processRevealObserver.observe(item));
     } else {
       processRevealItems.forEach((item) => item.classList.add('is-visible'));
+    }
+
+    const pricingHeading = document.querySelector('.pricing-heading');
+
+    if ('IntersectionObserver' in window && pricingHeading) {
+      const pricingObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.22,
+        rootMargin: '0px 0px -30px 0px'
+      });
+
+      pricingObserver.observe(pricingHeading);
+    } else if (pricingHeading) {
+      pricingHeading.classList.add('is-visible');
     }
 
     const processTabs = document.querySelectorAll('.process-tab');
