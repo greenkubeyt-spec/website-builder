@@ -803,28 +803,7 @@
     }
 
     .pricing-highlight {
-      position: relative;
-      display: inline-block;
       color: #86efac;
-    }
-
-    .pricing-highlight::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -0.18em;
-      width: 100%;
-      height: 0.12em;
-      border-radius: 999px;
-      background: #86efac;
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-      transition-delay: 0.22s;
-    }
-
-    .pricing-heading.is-visible .pricing-highlight::after {
-      transform: scaleX(1);
     }
 
     .pricing {
@@ -835,6 +814,16 @@
 
     .plan {
       padding: 22px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .plan-badge-row {
+      min-height: 34px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
     }
 
     .basic-plan {
@@ -861,6 +850,11 @@
     .plan ul {
       padding-left: 18px;
       margin-bottom: 22px;
+      flex-grow: 1;
+    }
+
+    .plan .btn {
+      margin-top: auto;
     }
 
     .highlight {
@@ -877,7 +871,13 @@
       color: #bbf7d0;
       border: 1px solid rgba(34,197,94,0.25);
       font-size: 0.8rem;
-      margin-bottom: 8px;
+      margin: 0;
+    }
+
+    .badge-neutral {
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      border-color: rgba(255,255,255,0.14);
     }
 
     .badge-premium {
@@ -975,11 +975,6 @@
         opacity: 1;
         transform: none;
         animation: none;
-        transition: none;
-      }
-
-      .pricing-highlight::after {
-        transform: scaleX(1);
         transition: none;
       }
     }
@@ -1167,6 +1162,9 @@
 
       <div class="pricing">
         <article class="card plan basic-plan">
+          <div class="plan-badge-row">
+            <span class="badge badge-neutral">Most Affordable</span>
+          </div>
           <h3>Basic</h3>
           <div class="price">$99</div>
           <p>Ideal for a focused one-page website.</p>
@@ -1180,7 +1178,9 @@
         </article>
 
         <article class="card plan standard-plan highlight">
-          <span class="badge">Most Popular</span>
+          <div class="plan-badge-row">
+            <span class="badge">Most Popular</span>
+          </div>
           <h3>Standard</h3>
           <div class="price">$229</div>
           <p>Best for businesses that need more space and flexibility.</p>
@@ -1194,7 +1194,9 @@
         </article>
 
         <article class="card plan premium-plan">
-          <span class="badge badge-premium">Most Complete</span>
+          <div class="plan-badge-row">
+            <span class="badge badge-premium">Most Complete</span>
+          </div>
           <h3>Premium</h3>
           <div class="price">$369</div>
           <p>Built for brands that need stronger support and a fuller website setup.</p>
