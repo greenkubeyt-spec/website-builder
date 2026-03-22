@@ -1,1 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Buildora</title>
+  <meta name="description" content="Learn more about Buildora and view portfolio work." />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #111827;
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --line: rgba(255,255,255,0.10);
+      --accent: #86efac;
+      --max: 1120px;
+      --radius: 22px;
+      --shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    }
 
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behaviour: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #0b1220 0%, #0f172a 55%, #111827 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(15, 23, 42, 0.75);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      gap: 16px;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .hero {
+      padding: 80px 0 36px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(56,189,248,0.3);
+      background: rgba(56,189,248,0.08);
+      color: #bae6fd;
+      font-size: 0.88rem;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      line-height: 1.04;
+      margin: 0 0 16px;
+      letter-spacing: -0.04em;
+    }
+
+    .accent {
+      color: var(--accent);
+    }
+
+    .lead {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    section {
+      padding: 18px 0 64px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+
+    .card h2,
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-top: 0;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .portfolio-item {
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .portfolio-thumb {
+      height: 180px;
+      background: linear-gradient(135deg, rgba(125,211,252,0.18), rgba(134,239,172,0.16), rgba(251,113,133,0.12));
+      border-bottom: 1px solid var(--line);
+    }
+
+    .portfolio-content {
+      padding: 18px;
+    }
+
+    .portfolio-content h3 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+    }
+
+    .portfolio-content p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      padding: 24px 0 40px;
+      border-top: 1px solid var(--line);
+    }
+
+    footer p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    @media (max-width: 960px) {
+      .grid,
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand"><span>B</span>uildora.</a>
+      <div class="nav-links">
+        <a href="about.html">About Us</a>
+      </div>
+      <a class="btn" href="index.html">Back to Home</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <div class="eyebrow">✦ About Buildora</div>
+      <h1>About <span class="accent">Buildora</span></h1>
+      <p class="lead">This page can be used as your portfolio and introduction page. Add your story, your work, your style, and examples of websites you have created.</p>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <div class="grid">
+        <div class="card">
+          <h2>Who we are</h2>
+          <p>Buildora creates clean, modern websites for small businesses, freelancers, and personal brands. The goal is to make websites feel clear, trustworthy, and easy to use.</p>
+        </div>
+
+        <div class="card">
+          <h2>What to place here</h2>
+          <p>You can use this page to show your portfolio, describe your style, talk about your experience, and explain why clients should work with you.</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 28px;">
+        <h2 style="margin-bottom: 10px;">Portfolio</h2>
+        <p style="color: var(--muted); margin-top: 0;">Replace these sample cards with your own website projects, screenshots, and descriptions.</p>
+
+        <div class="portfolio-grid">
+          <div class="portfolio-item">
+            <div class="portfolio-thumb"></div>
+            <div class="portfolio-content">
+              <h3>Project One</h3>
+              <p>Add a short description of the website, the style, and who it was made for.</p>
+            </div>
+          </div>
+
+          <div class="portfolio-item">
+            <div class="portfolio-thumb"></div>
+            <div class="portfolio-content">
+              <h3>Project Two</h3>
+              <p>Add another project example here with a short explanation and your role.</p>
+            </div>
+          </div>
+
+          <div class="portfolio-item">
+            <div class="portfolio-thumb"></div>
+            <div class="portfolio-content">
+              <h3>Project Three</h3>
+              <p>Use this area to show more work and build trust with future clients.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Buildora. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
