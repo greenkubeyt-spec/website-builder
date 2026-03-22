@@ -23,7 +23,7 @@
     }
 
     html {
-      scroll-behavior: smooth;
+      scroll-behaviour: smooth;
     }
 
     body {
@@ -217,16 +217,6 @@
       margin-bottom: 0;
     }
 
-    .section-title {
-      margin-bottom: 10px;
-    }
-
-    .section-copy {
-      color: var(--muted);
-      margin-top: 0;
-      margin-bottom: 0;
-    }
-
     .portfolio-head {
       margin-top: 28px;
       margin-bottom: 18px;
@@ -299,7 +289,9 @@
       padding: 16px;
     }
 
-    .music-window {
+    .music-window,
+    .bakery-window,
+    .coach-window {
       width: 100%;
       height: 100%;
       border-radius: 18px;
@@ -310,7 +302,9 @@
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.16);
     }
 
-    .music-top {
+    .music-top,
+    .bakery-top,
+    .coach-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -333,19 +327,25 @@
       box-shadow: 0 0 0 3px rgba(255,255,255,0.10);
     }
 
-    .music-logo-line {
+    .music-logo-line,
+    .bakery-logo-line,
+    .coach-logo-line {
       width: 72px;
       height: 8px;
       border-radius: 999px;
       background: rgba(255,255,255,0.88);
     }
 
-    .music-nav {
+    .music-nav,
+    .bakery-nav,
+    .coach-nav {
       display: flex;
       gap: 8px;
     }
 
-    .music-nav span {
+    .music-nav span,
+    .bakery-nav span,
+    .coach-nav span {
       width: 22px;
       height: 8px;
       border-radius: 999px;
@@ -360,7 +360,8 @@
       height: calc(100% - 45px);
     }
 
-    .music-left {
+    .music-left,
+    .music-right {
       display: grid;
       gap: 10px;
       align-content: start;
@@ -373,35 +374,45 @@
       background: rgba(251,191,36,0.95);
     }
 
-    .music-title {
+    .music-title,
+    .bakery-title,
+    .coach-title {
       width: 86%;
       height: 14px;
       border-radius: 999px;
       background: rgba(255,255,255,0.92);
     }
 
-    .music-title.short {
+    .music-title.short,
+    .bakery-title.short,
+    .coach-title.short {
       width: 58%;
     }
 
-    .music-copy {
+    .music-copy,
+    .bakery-copy,
+    .coach-copy {
       width: 92%;
       height: 7px;
       border-radius: 999px;
       background: rgba(255,255,255,0.18);
     }
 
-    .music-copy.short {
+    .music-copy.short,
+    .bakery-copy.short,
+    .coach-copy.short {
       width: 68%;
     }
 
-    .music-buttons {
+    .music-buttons,
+    .coach-buttons {
       display: flex;
       gap: 8px;
       margin-top: 4px;
     }
 
-    .music-buttons span {
+    .music-buttons span,
+    .coach-buttons span {
       height: 26px;
       border-radius: 999px;
     }
@@ -417,13 +428,9 @@
       border: 1px solid rgba(255,255,255,0.12);
     }
 
-    .music-right {
-      display: grid;
-      gap: 10px;
-      align-content: start;
-    }
-
-    .music-card {
+    .music-card,
+    .bakery-card,
+    .coach-card {
       border-radius: 14px;
       border: 1px solid rgba(255,255,255,0.10);
       background: rgba(255,255,255,0.08);
@@ -453,7 +460,9 @@
     .music-wave span:nth-child(7) { height: 16px; }
     .music-wave span:nth-child(8) { height: 28px; }
 
-    .music-small-line {
+    .music-small-line,
+    .bakery-small-line,
+    .coach-small-line {
       width: 88%;
       height: 7px;
       border-radius: 999px;
@@ -461,13 +470,148 @@
       margin-bottom: 6px;
     }
 
-    .music-small-line.short {
+    .music-small-line.short,
+    .bakery-small-line.short,
+    .coach-small-line.short {
       width: 58%;
       margin-bottom: 0;
     }
 
-    .alt-thumb {
-      background: linear-gradient(135deg, rgba(125,211,252,0.18), rgba(134,239,172,0.16), rgba(251,113,133,0.12));
+    .bakery-thumb {
+      background: linear-gradient(135deg, #451a03 0%, #92400e 35%, #f59e0b 100%);
+      padding: 16px;
+    }
+
+    .bakery-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .bakery-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #fff7ed, #fdba74);
+      box-shadow: 0 0 0 3px rgba(255,255,255,0.10);
+    }
+
+    .bakery-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      padding: 14px;
+      height: calc(100% - 45px);
+    }
+
+    .bakery-left,
+    .bakery-right {
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+
+    .bakery-badge {
+      width: 70px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,247,237,0.95);
+    }
+
+    .bakery-copy-block {
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.08);
+      padding: 10px;
+    }
+
+    .bakery-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .bakery-photo {
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(255,247,237,0.80), rgba(251,191,36,0.36));
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .bakery-cta {
+      height: 26px;
+      width: 78px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #fff7ed, #fdba74);
+    }
+
+    .coach-thumb {
+      background: linear-gradient(135deg, #0f172a 0%, #0f766e 45%, #22c55e 100%);
+      padding: 16px;
+    }
+
+    .coach-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .coach-square {
+      width: 18px;
+      height: 18px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, #dcfce7, #22c55e);
+      box-shadow: 0 0 0 3px rgba(255,255,255,0.10);
+    }
+
+    .coach-body {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 12px;
+      padding: 14px;
+      height: calc(100% - 45px);
+    }
+
+    .coach-left,
+    .coach-right {
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+
+    .coach-badge {
+      width: 72px;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(220,252,231,0.95);
+    }
+
+    .coach-buttons span:first-child {
+      width: 86px;
+      background: linear-gradient(90deg, #dcfce7, #22c55e);
+    }
+
+    .coach-buttons span:last-child {
+      width: 64px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .coach-stat {
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.08);
+      padding: 10px;
+    }
+
+    .coach-ring {
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      margin-bottom: 8px;
+      background:
+        radial-gradient(circle at center, rgba(15,23,42,0.85) 46%, transparent 47%),
+        conic-gradient(#dcfce7 0 65%, rgba(255,255,255,0.16) 65% 100%);
     }
 
     .portfolio-content {
@@ -502,7 +646,9 @@
         grid-template-columns: 1fr;
       }
 
-      .music-body {
+      .music-body,
+      .bakery-body,
+      .coach-body {
         grid-template-columns: 1fr;
       }
     }
@@ -622,18 +768,98 @@
         </div>
 
         <div class="portfolio-item">
-          <div class="portfolio-thumb alt-thumb"></div>
+          <div class="portfolio-thumb bakery-thumb">
+            <div class="bakery-window">
+              <div class="bakery-top">
+                <div class="bakery-brand">
+                  <div class="bakery-dot"></div>
+                  <div class="bakery-logo-line"></div>
+                </div>
+                <div class="bakery-nav">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+              <div class="bakery-body">
+                <div class="bakery-left">
+                  <div class="bakery-badge"></div>
+                  <div class="bakery-title"></div>
+                  <div class="bakery-title short"></div>
+                  <div class="bakery-copy"></div>
+                  <div class="bakery-copy"></div>
+                  <div class="bakery-copy short"></div>
+                  <div class="bakery-cta"></div>
+                </div>
+                <div class="bakery-right">
+                  <div class="bakery-card">
+                    <div class="bakery-gallery">
+                      <div class="bakery-photo"></div>
+                      <div class="bakery-photo"></div>
+                      <div class="bakery-photo"></div>
+                      <div class="bakery-photo"></div>
+                    </div>
+                  </div>
+                  <div class="bakery-copy-block">
+                    <div class="bakery-small-line"></div>
+                    <div class="bakery-small-line"></div>
+                    <div class="bakery-small-line short"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="portfolio-content">
-            <h3>Project Two</h3>
-            <p>Add another project example here with a short explanation and your role.</p>
+            <h3>Warm Showcase Website for a Home Bakery Brand</h3>
+            <p>This website was designed for a small home bakery that needed a more polished way to present its products and accept enquiries online. The design was made warmer and more inviting, with clearer sections for featured items, brand personality, and contact details, helping the business look more trustworthy and attract more first-time customers.</p>
           </div>
         </div>
 
         <div class="portfolio-item">
-          <div class="portfolio-thumb alt-thumb"></div>
+          <div class="portfolio-thumb coach-thumb">
+            <div class="coach-window">
+              <div class="coach-top">
+                <div class="coach-brand">
+                  <div class="coach-square"></div>
+                  <div class="coach-logo-line"></div>
+                </div>
+                <div class="coach-nav">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+              <div class="coach-body">
+                <div class="coach-left">
+                  <div class="coach-badge"></div>
+                  <div class="coach-title"></div>
+                  <div class="coach-title short"></div>
+                  <div class="coach-copy"></div>
+                  <div class="coach-copy"></div>
+                  <div class="coach-copy short"></div>
+                  <div class="coach-buttons">
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+                <div class="coach-right">
+                  <div class="coach-stat">
+                    <div class="coach-ring"></div>
+                    <div class="coach-small-line"></div>
+                    <div class="coach-small-line short"></div>
+                  </div>
+                  <div class="coach-card">
+                    <div class="coach-small-line"></div>
+                    <div class="coach-small-line"></div>
+                    <div class="coach-small-line short"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="portfolio-content">
-            <h3>Project Three</h3>
-            <p>Use this area to show more work and build trust with future clients.</p>
+            <h3>Professional Landing Page for a Personal Coach</h3>
+            <p>This project was built for a personal coach who needed a cleaner and more professional online presence to explain services clearly and encourage more enquiries. The website was structured to feel calm, reliable, and easy to follow, with stronger calls to action and clearer service presentation to help turn visitors into potential clients.</p>
           </div>
         </div>
       </div>
